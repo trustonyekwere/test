@@ -43,18 +43,16 @@ export default function EditSmoothie({ smoothie }: { smoothie: Smoothie }) {
 
     if (!editing) {
         return (
-            <div className='flex justify-end'>
-                <button
-                    onClick={() => setEditing(true)}
-                    className="bg-blue-600 text-white p-4 rounded-full mt-2 hover:scale-110"
-                >
-                    <div className='flex items-center gap-2'>
-                        <div>
-                            <PencilIcon size={18} />
-                        </div>
+            <button
+                onClick={() => setEditing(true)}
+                className="bg-blue-600 text-white p-4 rounded-full mt-2 hover:scale-110"
+            >
+                <div className='flex items-center gap-2'>
+                    <div>
+                        <PencilIcon size={18} />
                     </div>
-                </button>
-            </div>
+                </div>
+            </button>
         )
     }
 

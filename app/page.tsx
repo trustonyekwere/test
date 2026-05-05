@@ -1,6 +1,7 @@
 import { supabase } from '@/lib/supabase'
 import AddSmoothieForm from '@/components/AddSmoothieForm'
 import EditSmoothie from '@/components/EditSmoothie'
+import DeleteSmoothie from '@/components/DeleteSmoothie'
 
 type Smoothie = {
   id: number
@@ -31,8 +32,8 @@ export default async function Home() {
           {smoothies.map((smoothie) => (
             <div key={smoothie.id} className="border border-gray-500/30 hover:-translate-y-2 transition-all w-fit mb-2 rounded-3xl ">
               <img 
-                className='h-75 w-full rounded-t-3xl' 
-                src={smoothie.image_url} 
+                className="h-75 w-full rounded-t-3xl"
+                src={smoothie.image_url || ''} 
                 alt={smoothie.name} 
               />
               <div className='p-6 space-y-2'>
@@ -45,7 +46,10 @@ export default async function Home() {
                 <p className="text-green-600 text-2xl font-bold">
                   ₦{smoothie.price}
                 </p>
-                <EditSmoothie smoothie={smoothie} />
+                <div className="flex gap-2 justify-end">
+                  <EditSmoothie smoothie={smoothie} />
+                  <DeleteSmoothie id={smoothie.id} />
+                </div>
               </div>
             </div>
           ))}
