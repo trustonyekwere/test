@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import { PlusIcon } from 'lucide-react'
 
 export default function AddSmoothieForm() {
     const [name, setName] = useState('')
@@ -39,7 +40,7 @@ export default function AddSmoothieForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="my-12 space-y-5">
+        <form onSubmit={handleSubmit} className="my-10 space-y-5 border p-10 rounded-3xl border-gray-500/30">
             <input
                 type="text"
                 placeholder="Name"
@@ -72,7 +73,9 @@ export default function AddSmoothieForm() {
                     disabled={loading}
                     className="bg-green-600 text-white px-4 py-2 hover:scale-110 rounded-lg"
                 >
-                    {loading ? 'Adding...' : 'Add'}
+                    <div className='flex items-center gap-2'>
+                        {loading ? 'Adding...' : 'Add'} <PlusIcon size={18} />
+                    </div>
                 </button>
             </div>
         </form>
