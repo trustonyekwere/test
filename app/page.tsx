@@ -1,4 +1,6 @@
 import { supabase } from '@/lib/supabase'
+import AddSmoothieForm from '@/components/AddSmoothieForm'
+
 type Smoothie = {
   id: number
   name: string
@@ -46,6 +48,10 @@ export default async function Home() {
             </div>
           ))}
         </div>
+      
+      <h1 className="text-5xl font-bold mb-12 mt-6 text-center">Add smoothie</h1>
+      <AddSmoothieForm />
+
       </div>
     </div>
   )
